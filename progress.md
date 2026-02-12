@@ -18,3 +18,21 @@
 2. Commit current project files.
 3. Push to remote branch.
 4. Start MVP scaffolding (auth, Projects, Yarn Closet, Interested Projects tabs).
+
+## 2026-02-12
+- Started MVP frontend scaffolding.
+- Created a React + Vite app shell for the authenticated experience.
+- Added post-login UI with three tabs:
+  - Project
+  - Yarn Closet
+  - Interested Project
+- Added first-pass display cards listing required fields for each tab.
+- Added responsive baseline styling for desktop and mobile.
+- Next: wire these sections to real forms and state, then connect to backend APIs.
+- Migrated styling to Tailwind CSS + daisyUI and removed reliance on handcrafted CSS rules.
+- Replaced static tab field checklists with working MVP form UIs and local state handling:
+  - Project tab: add project form + saved project preview list
+  - Yarn Closet tab: add yarn form + grouped saved lists (In Closet / Used Up)
+  - Interested Project tab: add interest form + saved interest preview list
+- Kept layout fully responsive with framework classes only.
+- Verified frontend production build after form migration.
