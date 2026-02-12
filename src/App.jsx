@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import { Box, Button, Container, Heading, HStack, Text } from "@chakra-ui/react";
 import { ProjectTab } from "./components/ProjectTab";
 import { YarnClosetTab } from "./components/YarnClosetTab";
 import { InterestedProjectsTab } from "./components/InterestedProjectsTab";
@@ -19,33 +20,35 @@ export default function App() {
   }, [activeTab]);
 
   return (
-    <div className="min-h-screen bg-base-200">
-      <div className="mx-auto max-w-6xl p-4 md:p-6">
-        <header className="hero rounded-box bg-primary text-primary-content shadow-lg">
-          <div className="hero-content w-full justify-start">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] opacity-90">Authenticated View</p>
-              <h1 className="text-2xl font-bold md:text-3xl">Yarn and Knit Directory</h1>
-            </div>
-          </div>
-        </header>
+    <Box className="app-root">
+      <Container maxW="container.xl" className="app-container" p={0}>
+        <Box className="app-header">
+          <Box className="app-header-content">
+            <Box>
+              <Text className="app-kicker">Authenticated View</Text>
+              <Heading as="h1" size="lg" className="app-title">
+                Yarn and Knit Directory
+              </Heading>
+            </Box>
+          </Box>
+        </Box>
 
-        <nav aria-label="Main sections" className="tabs tabs-boxed mt-5 w-fit bg-base-100 p-1 shadow-sm">
+        <HStack className="app-tabs" spacing={2} align="stretch">
           {tabs.map((tab) => (
-            <button
+            <Button
               key={tab.id}
-              type="button"
-              role="tab"
-              className={tab.id === activeTab ? "tab tab-active" : "tab"}
+              size="sm"
+              variant={tab.id === activeTab ? "solid" : "outline"}
+              colorScheme={tab.id === activeTab ? "teal" : "gray"}
               onClick={() => setActiveTab(tab.id)}
             >
               {tab.label}
-            </button>
+            </Button>
           ))}
-        </nav>
+        </HStack>
 
-        <main className="mt-5">{activePanel}</main>
-      </div>
-    </div>
+        <Box className="app-main">{activePanel}</Box>
+      </Container>
+    </Box>
   );
 }
