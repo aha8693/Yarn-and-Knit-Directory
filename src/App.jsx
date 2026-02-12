@@ -36,10 +36,11 @@ export default function App() {
         <HStack className="app-tabs" spacing={2} align="stretch">
           {tabs.map((tab) => (
             <Button
+              className={tab.id === activeTab ? "app-tab app-tab-active" : "app-tab app-tab-inactive"}
               key={tab.id}
               size="sm"
-              variant={tab.id === activeTab ? "solid" : "outline"}
-              colorScheme={tab.id === activeTab ? "teal" : "gray"}
+              variant="ghost"
+              colorScheme="gray"
               onClick={() => setActiveTab(tab.id)}
             >
               {tab.label}
